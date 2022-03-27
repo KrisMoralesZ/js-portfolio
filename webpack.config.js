@@ -1,3 +1,4 @@
+const { Module } = require('module');
 const path = require('path');
 
 module.exports = {
@@ -8,5 +9,16 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js']
-    }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            } 
+        ]
+    },  
 }
